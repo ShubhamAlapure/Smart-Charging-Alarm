@@ -8,7 +8,7 @@ A premium, feature-rich Android application built with **Jetpack Compose** and *
 
 You can download the pre-compiled APK directly to your Android device from the GitHub Releases page:
 
-**[👉 Download Latest Smart Charging Alarm APK 👈](https://github.com/ShubhamAlapure/Smart-Charging-Alarm/releases/latest)**
+**[👉 Download Latest Smart Charging Alarm APK 👈](https://github.com/ShubhamAlapure/Smart-Charging-Alarm/releases/tag/latest)**
 
 *Choose the **`Smart-Charging-Alarm-debug.apk`** from the Assets list on the Releases page.*
 
