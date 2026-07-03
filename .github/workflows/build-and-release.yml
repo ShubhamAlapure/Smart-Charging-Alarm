@@ -54,8 +54,8 @@ jobs:
             Automated build of the Smart Charging Alarm application.
             
             ### Download Links:
-            - **`Smart-Charging-Alarm-debug.apk`**: Debug build (Recommended for quick testing and sideloading. It does not require code signing setup).
-            - **`Smart-Charging-Alarm-release-unsigned.apk`**: Unsigned Release build (Must be signed before installation on most Android devices).
+            - 📥 **[Download Smart-Charging-Alarm-debug.apk](https://github.com/ShubhamAlapure/Smart-Charging-Alarm/releases/latest/download/Smart-Charging-Alarm-debug.apk)**: Debug build (Recommended for quick testing and sideloading. It does not require code signing setup).
+            - 📥 **[Download Smart-Charging-Alarm-release-unsigned.apk](https://github.com/ShubhamAlapure/Smart-Charging-Alarm/releases/latest/download/Smart-Charging-Alarm-release-unsigned.apk)**: Unsigned Release build (Must be signed before installation on most Android devices).
             
             *This release is automatically generated and updated upon every commit to the main branch.*
           allowUpdates: true
