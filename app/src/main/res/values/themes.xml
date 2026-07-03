@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. Using DeviceDefault to avoid XML Material dependencies for Compose. -->
+    <style name="Theme.BatteryAlarm" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:statusBarColor">#0C0C0E</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

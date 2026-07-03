@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Outer Battery Outline (Centered at 54, 54) -->
+    <path
+        android:strokeColor="#00FFCC"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M45,34 H63 A4,4 0,0 1 67,38 V74 A4,4 0,0 1 63,78 H45 A4,4 0,0 1 41,74 V38 A4,4 0,0 1 45,34 Z" />
+        
+    <!-- Battery Top Cap -->
+    <path
+        android:fillColor="#00FFCC"
+        android:pathData="M50,28 H58 V34 H50 Z" />
+
+    <!-- Lightning Bolt inside (colored glowing yellow) -->
+    <path
+        android:fillColor="#FFFF33"
+        android:pathData="M57,40 L47,56 H53 L51,72 L61,52 H55 Z" />
+</vector>

@@ -1,0 +1,65 @@
+name: Build & Release APK
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build APKs
+        run: ./gradlew assembleDebug assembleRelease
+
+      - name: Prepare APKs for Release
+        run: |
+          mkdir -p release-artifacts
+          # Copy debug APK
+          if [ -f app/build/outputs/apk/debug/app-debug.apk ]; then
+            cp app/build/outputs/apk/debug/app-debug.apk release-artifacts/Smart-Charging-Alarm-debug.apk
+          fi
+          # Copy release APK (could be unsigned)
+          if [ -f app/build/outputs/apk/release/app-release-unsigned.apk ]; then
+            cp app/build/outputs/apk/release/app-release-unsigned.apk release-artifacts/Smart-Charging-Alarm-release-unsigned.apk
+          elif [ -f app/build/outputs/apk/release/app-release.apk ]; then
+            cp app/build/outputs/apk/release/app-release.apk release-artifacts/Smart-Charging-Alarm-release.apk
+          fi
+
+      - name: Publish GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "release-artifacts/*"
+          tag: ${{ github.ref_type == 'tag' && github.ref_name || 'latest' }}
+          name: ${{ github.ref_type == 'tag' && github.ref_name || 'Latest Build' }}
+          body: |
+            Automated build of the Smart Charging Alarm application.
+            
+            ### Download Links:
+            - **`Smart-Charging-Alarm-debug.apk`**: Debug build (Recommended for quick testing and sideloading. It does not require code signing setup).
+            - **`Smart-Charging-Alarm-release-unsigned.apk`**: Unsigned Release build (Must be signed before installation on most Android devices).
+            
+            *This release is automatically generated and updated upon every commit to the main branch.*
+          allowUpdates: true
+          removeArtifacts: true
+          makeLatest: true
+          prerelease: ${{ github.ref_type != 'tag' }}
+          token: ${{ secrets.GITHUB_TOKEN }}
